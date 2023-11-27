@@ -9,10 +9,22 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool isSignedIn = true;
-  String fullName = 'Reni Aurelia';
-  String userName = 'reniy';
-  int favoriteCandiCount = 9;
+  bool isSignedIn = false;
+  String fullName = '';
+  String userName = '';
+  int favoriteCandiCount = 0;
+  late Color iconColor;
+
+  void signIn() {
+    // setState((){
+    //  isSignedIn = true;
+    //  fullName = 'Christian Bautista';
+    //  userName = 'christianb';
+    //  favoriteCandiCount = 2;
+    // });
+    Navigator.pushNamed(context, '/signin');
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Container(
             height: 200,
             width: double.infinity,
-            color: Color.fromARGB(255, 138, 178, 252),
+            color: Colors.amber,
           ),
           Column(
             children: [
@@ -73,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       icon: Icons.lock,
                       label: 'Pengguna',
                       value: userName,
-                      iconColor: Colors.orange,
+                      iconColor: Colors.amber,
                     ),
                     const SizedBox(
                       height: 5,
@@ -92,7 +104,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         onEditPressed: () {
                           debugPrint('Icon edit ditekan ...');
                         },
-                        iconColor: Colors.black),
+                        iconColor: Colors.blue),
                     const SizedBox(
                       height: 5,
                     ),
@@ -122,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             onPressed: () {},
                             child: Text('Sign Out'),
                             style: TextButton.styleFrom(
-                                backgroundColor: Color.fromARGB(255, 138, 178, 252),
+                                backgroundColor: Colors.amber,
                                 padding: const EdgeInsets.all(20),
                                 elevation: 5),
                           )
@@ -130,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             onPressed: () {},
                             child: Text('Sign In'),
                             style: TextButton.styleFrom(
-                                backgroundColor: Color.fromARGB(255, 151, 255, 177),
+                                backgroundColor: Colors.amber,
                                 padding: const EdgeInsets.all(20),
                                 elevation: 5),
                           )
